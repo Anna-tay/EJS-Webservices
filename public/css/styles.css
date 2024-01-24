@@ -1,7 +1,137 @@
 /******* Change Box Model ***************/
 /* my small looking display */
+:root {
+  --blueP : rgb(136, 181, 247);
+  --purpleP: rgb(51, 34, 27);
+}
+
+.body-img {
+  display:none;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+/* header */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.siteName {
+  font-size: 44px; /* Adjust the font size to make the logo bigger */
+}
+
+.siteName a {
+  text-decoration: none;
+  color: var(--purpleP);
+}
+
+#tools a {
+  text-decoration: none;
+  color: black;
+}
+
+/* nav */
+nav {
+  margin-top: 1rem;
+  display: flex;
+  background-color: var(--purpleP);
+  justify-content: center; /* Center the nav horizontally */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin-right: auto;
+  text-decoration: none;
+  padding: 0.3rem;
+  color: var(--blueP);
+  font-size: 24px;
+}
+
+nav li:hover {
+  border: 1px solid var(--blueP);
+  border-radius: 5px;
+  color: white;
+}
+
+/* body */
+body {
+  background-color: rgb(231, 229, 229);
+}
+
+.img-containor {
+  position: relative;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--blueP);
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.637);
+}
+.card h3{
+  padding: 0px;
+  margin: 0px;
+}
+.card h4{
+  padding: 0px;
+  margin: 0px;
+}
+.card img {
+  width: 90px;
+}
+
+.del-img {
+  display: block;
+  margin-left: 3rem;
+}
+
+#large {
+  display: none;
+  width:auto;
+}
+
+/* upgrade section */
+.upgrade_section{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  row-gap: 60px;
+  column-gap: 10px;
+}
+
+.up-card{
+  background-color: var(--blueP);
+  width: 120px;
+  height: 100px;
+  padding: 1.3rem;
+  margin: .3rem;
+  border: 1px solid #000;
+}
+.card-img{
+  width: auto;
+  justify-content: center;
+}
+
+.upgrade_section p{
+  text-decoration: underline;
+  display: center;
+  color: blue;
+  padding-bottom: 290px;
+}
+
+
+footer{
+  margin-top: 80px;
 }
