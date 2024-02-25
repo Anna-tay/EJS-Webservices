@@ -34,7 +34,7 @@ invCont.buildByDetailsId = async function (req, res, next) {
   try{
     const inv_id = req.params.invId
     const data = await invModel.getInventoryByDetailsId(inv_id)
-    // console.log(data)
+    console.log(data)
     const grid = await utilities.buildDetailsGrid(data)
     // console.log("this is grid" + grid)
     let nav = await utilities.getNav()

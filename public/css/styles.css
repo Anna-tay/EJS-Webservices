@@ -71,6 +71,13 @@ body {
 .img-containor {
   position: relative;
 }
+.left-section{
+  flex: 0;
+}
+
+.right-section{
+  flex: 0;
+}
 
 .card {
   position: absolute;
@@ -134,4 +141,130 @@ body {
 
 footer{
   margin-top: 80px;
+}
+
+/* details page */
+
+.car-section{
+  /* this is the car left section */
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+#big-car{
+  /* bigimage of car */
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: green;
+}
+#small-car{
+  /* small car */
+  padding: .5rem;
+  padding-bottom: 0;
+}
+#passed_inpec {
+  flex: 1;
+  padding: 20px; /* Adjust the padding as needed */
+}
+#enter-prise {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.info-section{
+  /* the information section */
+  color:black;
+  display: flex;
+  flex-direction: column;
+}
+.no-hagging{
+  flex: 2;
+  /* no hagging thing */
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+
+}
+.info-section h1 {
+  width: 100%;
+  flex: 1;
+  text-align: center; /* Optional: Align text at the center */
+  margin-top: 20px; /* Adjust margin as needed */
+}
+.no-hagging h3{
+  /* no hagging thing */
+  color:green;
+
+}
+.no-hagging h4{
+  /* no hagging thing */
+  padding-left: 1rem;
+
+}
+.info-haggle{
+  padding: .5rem;
+  flex: 4;
+}
+.info-haggle p{
+  float: right;
+}
+.info-haggle h3{
+  float: right;
+}
+.detail-section{
+  background-color: white;
+  color:black;
+}
+.detail-section-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.miles{
+  margin-left: .5rem;
+  background-color: rgba(61, 173, 243, 0.425);
+  flex: 1;
+  padding:.3rem;
+  text-align: center;
+  height: 105px;
+
+}
+.miles h3{
+  background-color: white;
+}
+
+#mpg{
+  color:green;
+
+}
+.start-my-purchase{
+  padding: 10px 20px;
+    background-color: green;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.other-buttons{
+  padding: 10px 20px;
+  background-color: rgba(34, 95, 133, 0.63);
+  color: #ffffff;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.number{
+  color:green;
 }
