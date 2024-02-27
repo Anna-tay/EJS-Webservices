@@ -96,7 +96,7 @@ Util.buildDetailsGrid = async function(data) {
             <p><strong>Stock #:</strong> D09G24</p>
             <p><strong>VIN:</strong> 0560327485</p>
             <h4 id="mpg">+ MPG</h4>
-  
+
             <P>The principal prior use of this vehicle was as a Rental Vehicle</p>
           </section>
           <section class="right-details-section">

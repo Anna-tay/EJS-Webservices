@@ -159,6 +159,8 @@ footer{
   padding-top: 0;
   padding-bottom: 0;
   border-bottom: green;
+  width: 100%;
+  height: auto;
 }
 #small-car{
   /* small car */
