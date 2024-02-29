@@ -16,7 +16,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoutes")
-const utilities = require('./utilities/'); // Adjust the path as needed
+const utilities = require('./utilities/');
 
 
 /* ***********************
@@ -55,7 +55,8 @@ app.use(static);
 // Inventory routes
 app.use("/inv", inventoryRoute)
 // account routes
-app.use('/account', accountRoute)
+app.use("/account", accountRoute)
+// watch the video
 
 
 // index route

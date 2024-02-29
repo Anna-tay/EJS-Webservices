@@ -272,10 +272,46 @@ footer{
 }
 
 /* login  */
-#blue-box{
+#loginForm{
   border: 2px gray;
-  background-color: rgb(16, 16, 74);
+  background-color: rgb(46, 46, 75);
+  padding: .5rem;
+  margin: 1rem;
 }
-#blue-box label{
+#loginForm label{
   color: white;
+  padding: 1rem;
+}
+#loginForm input{
+  margin-bottom: .3rem;
+}
+#loginForm p{
+  color: white;
+}
+#loginForm p a{
+  color: rgb(133, 231, 255);
+}
+.password_instructions{
+  font-size: small;
+  color:white;
+}
+
+.registrationForm{
+  border: 2px gray;
+  background-color: rgb(46, 46, 75);
+  padding: .5rem;
+  margin: 1rem;
+}
+.registrationForm label{
+  color: white;
+  padding: 1rem;
+}
+.registrationForm input{
+  margin-bottom: .3rem;
+}
+.registrationForm p{
+  color: white;
+}
+.registrationForm p a{
+  color: rgb(133, 231, 255);
 }

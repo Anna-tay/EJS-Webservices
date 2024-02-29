@@ -105,7 +105,7 @@ Util.buildDetailsGrid = async function(data) {
             <button class="other-buttons">CONTACT US</button>
             <button class="other-buttons">SCHEDULE TEST DRIVE</button>
             <button class="other-buttons">APPLY FOR FINANCING</button>
-  
+
             <h3><strong>Call Us</strong></h3>
             <h3 class="number"><strong>801-37886</strong></h3>
             <h3><strong>Visit Us</strong></h3>
