@@ -270,3 +270,12 @@ footer{
 .number{
   color:green;
 }
+
+/* login  */
+#blue-box{
+  border: 2px gray;
+  background-color: rgb(16, 16, 74);
+}
+#blue-box label{
+  color: white;
+}
