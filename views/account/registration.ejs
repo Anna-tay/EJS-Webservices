@@ -2,18 +2,23 @@
 
 <% if (title) { %>
     <h1><%= title %></h1>
-    <form action="/account/registration" method="post" class="registrationForm">
+    <form action="" method="post" class="registrationForm">
       <label for="firstName">First Name:</label>
-      <input type="text" name="account_firstname" id="accountFirstname" required value="<%= locals.account_firstname %>">
+      <input type="text" name="account_firstname" id="firstName" required value="<%= locals.account_firstname %>"
+      autocomplete="username">
       <br>
       <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" name="lastName" required value="<%= locals.account_lastname %>">
+      <input type="text" id="lastName" name="account_lastname" required value="<%= locals.account_lastname %>"
+      autocomplete="username">
       <br>
       <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required value="<%= locals.account_email %>">
+      <input type="email" id="email" name="account_email" required value="<%= locals.account_email %>"
+      autocomplete="email">
       <br>
-      <label for="accountPassword">Password:</label> 
-      <input type="password" name="account_password" id="accountPassword" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+      <label for="accountPassword">Password:</label>
+      <input type="password" name="account_password" id="accountPassword"
+      required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+      autocomplete="new-password">
       <br>
       <span class="password_instructions">*Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
       <br>
