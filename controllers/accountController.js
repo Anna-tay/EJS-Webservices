@@ -73,6 +73,5 @@ async function buildRegister(req, res, next) {
     errors: null,
   })
 }
-  
-  module.exports = { buildLogin, buildRegister, registerAccount }
-  
+
+module.exports = { buildLogin, buildRegister, registerAccount }

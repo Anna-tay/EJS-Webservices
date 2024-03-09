@@ -16,6 +16,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoutes")
+const managerRoute = require("./routes/classificationRoute")
 const utilities = require('./utilities/');
 
 
@@ -56,7 +57,9 @@ app.use(static);
 app.use("/inv", inventoryRoute)
 // account routes
 app.use("/account", accountRoute)
-// watch the video
+
+app.use("/inv", managerRoute)
+app.use('/public/js', express.static('public/js', { 'Content-Type': 'application/javascript' }));
 
 
 // index route

@@ -315,3 +315,42 @@ footer{
 .registrationForm p a{
   color: rgb(133, 231, 255);
 }
+
+/* mamager views */
+#add-classification{
+  background-color: rgb(46, 46, 75);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#add-classification label{
+  color: white;
+}
+
+#dynamicForm{
+  background-color: rgb(46, 46, 75);
+
+
+}
+
+#dynamicForm label{
+  color: white;
+
+}
+
+#dynamicForm div{
+  margin: .5rem;
+
+}
+#dynamicForm input{
+  width: 70%;
+
+}
+#dynamicForm textarea{
+  width: 70%;
+
+}
+#dynamicForm select{
+  width: 50%;
+
+}
