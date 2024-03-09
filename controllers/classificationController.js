@@ -40,11 +40,15 @@ async function registerNewInv(req, res) {
      inv_image, inv_thumbnail,
       inv_miles, inv_color, classification_id } = req.body;
 
+  console.log(inv_make, inv_model,
+    inv_year, inv_description,
+     inv_image, inv_thumbnail, inv_price,
+      inv_miles, inv_color, classification_id)
   // Call invAccountSQL
   const regResult = await classification_model.invAccountSQL(
     inv_make, inv_model,
     inv_year, inv_description,
-     inv_image, inv_thumbnail,
+     inv_image, inv_thumbnail, inv_price,
       inv_miles, inv_color, classification_id
   );
 
