@@ -71,21 +71,20 @@ validate.checkRegData = async (req, res, next) => {
 
 
 // validation for manager routes
-validate.newRules = () => {
+validate.newClassRules = () => {
   return [
     // password is required and must be strong password
-    body("classification_name")
+    body("classification_id")
       .trim()
-      .isStrongPassword({
-        minLength: 1,
-        minSymbols: 0,
+      .isLength({
+        minLength: 1
       })
       .withMessage("The classification name does not meet the requirements"),
   ]
 }
 
-validate.checkNewData = async (req, res, next) => {
-  const { classification_name } = req.body
+validate.checkNewClassData = async (req, res, next) => {
+  const { classification_id } = req.body
   let errors = []
   errors = validationResult(req)
   if (!errors.isEmpty()) {
@@ -94,7 +93,7 @@ validate.checkNewData = async (req, res, next) => {
       errors,
       title: "New Classification",
       nav,
-      classification_name
+      classification_id
     })
     return
   }
@@ -129,7 +128,7 @@ validate.newInvRules = () => {
         .trim()
         .isLength({ min: 2 })
         .withMessage("Please provide a inventory image."),
-      
+
       body("inv_thumbnail")
         .trim()
         .isLength({ min: 2 })
@@ -138,15 +137,13 @@ validate.newInvRules = () => {
       body("inv_price")
         .trim()
         .isFloat()
-        .isLength({ min: 2 })
         .withMessage("Please provide a inventory price."),
 
       body("inv_miles")
         .trim()
         .isFloat()
-        .isLength({ min: 2 })
         .withMessage("Please provide a inventory miles."),
-      
+
       body("inv_color")
         .trim()
         .isLength({ min: 4 })
@@ -155,7 +152,7 @@ validate.newInvRules = () => {
 }
 
 validate.checkNewInvData = async (req, res, next) => {
-  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_miles, inv_color } = req.body
+  const { inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color } = req.body
   let errors = []
   errors = validationResult(req)
   if (!errors.isEmpty()) {
@@ -165,7 +162,7 @@ validate.checkNewInvData = async (req, res, next) => {
       title: "New Inventory",
       nav,
       inv_make, inv_model, inv_year, inv_description,
-       inv_image, inv_thumbnail, inv_miles, inv_color
+       inv_image, inv_thumbnail, inv_price, inv_miles, inv_color
     })
     return
   }
