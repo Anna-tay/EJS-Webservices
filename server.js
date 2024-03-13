@@ -18,6 +18,7 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoutes")
 const managerRoute = require("./routes/classificationRoute")
 const utilities = require('./utilities/');
+const cookieParser = require("cookie-parser")
 
 
 /* ***********************
@@ -43,6 +44,8 @@ app.use(function(req, res, next){
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 // View Engine and Templates
 app.set("view engine", "ejs");
@@ -57,8 +60,9 @@ app.use(static);
 app.use("/inv", inventoryRoute)
 // account routes
 app.use("/account", accountRoute)
-
+// for management routes
 app.use("/inv", managerRoute)
+
 app.use('/public/js', express.static('public/js', { 'Content-Type': 'application/javascript' }));
 
 
