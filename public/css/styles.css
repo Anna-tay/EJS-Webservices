@@ -1,8 +1,8 @@
 /******* Change Box Model ***************/
 /* my small looking display */
 :root {
-  --blueP : rgb(136, 181, 247);
-  --purpleP: rgb(51, 34, 27);
+  --blueP : rgb(204, 204, 233);
+  --purpleP: rgb(59, 40, 32);
 }
 
 .body-img {
@@ -138,6 +138,10 @@ body {
   padding-bottom: 290px;
 }
 
+.nav-section-color li a{
+  text-decoration: none;
+  color: var(--blueP);
+}
 
 footer{
   margin-top: 80px;
@@ -330,7 +334,6 @@ footer{
 #dynamicForm{
   background-color: rgb(46, 46, 75);
 
-
 }
 
 #dynamicForm label{
@@ -353,4 +356,52 @@ footer{
 #dynamicForm select{
   width: 50%;
 
+}
+
+#classificationList{
+  width: 255px;
+  background-color: #e7e7e7;
+   color: black;
+   font-size: 18px;
+}
+
+#box-loginout {
+  position: fixed;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+}
+
+
+.links a{
+  padding: .3rem;
+  margin:.3rem;
+  border: 1px solid rgb(46, 46, 75);
+  text-decoration: none;
+}
+
+.links a:hover{
+  background-color: rgba(194, 191, 191, 0.267);
+}
+
+.update-account, .update-password {
+  border: 2px gray;
+  background-color: rgb(46, 46, 75);
+  padding: 1rem;
+  margin: .5rem;
+}
+
+.update-account label, .update-password label{
+  color: white;
+}
+
+.update-account button, .update-password button{
+  padding: .3rem;
+  margin:.3rem;
+  border: 1px solid rgb(46, 46, 75);
+  background-color: white;
+  text-decoration: none;
+}
+
+.update-account button:hover, .update-password button:hover{
+  background-color: rgba(240, 239, 239, 0.884);
 }

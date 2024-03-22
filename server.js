@@ -78,11 +78,13 @@ app.get("/", function(req, res){
 *************************/
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
+  let loginLogout = await utilities.getLoginLogout()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
   res.render("errors/error", {
     title: err.status || 'Server Error',
     message: err.message,
-    nav
+    nav,
+    loginLogout
   })
 })
 

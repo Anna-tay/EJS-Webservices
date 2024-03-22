@@ -11,7 +11,7 @@ const Util = {}
  ************************** */
 Util.getNav = async function (req, res, next) {
   let data = await invModel.getClassifications()
-  let list = "<ul>"
+  let list = "<ul class='nav-section-color'>"
   list += '<li><a href="/" title="Home page">Home</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
@@ -24,8 +24,10 @@ Util.getNav = async function (req, res, next) {
       row.classification_name +
       "</a>"
     list += "</li>"
+
   })
   list += "</ul>"
+
   return list
 }
 
@@ -123,7 +125,23 @@ Util.buildDetailsGrid = async function(data) {
   return grid;
 };
 
-
+Util.buildClassificationList = async function() {
+  let data = await invModel.getClassifications()
+  // console.log(data)
+  let grid
+  grid = `<label for="classificationList">Choose Classification Name</label> <br>`
+  if (data) {
+    grid += '<select id="classificationList" name="classification_id">'
+    grid += `<option> Please select a classification</option>`
+      data.rows.forEach(row => {
+        grid += `<option value="${row.classification_id}">${row.classification_name}</option>`
+      })
+    grid += `</select>`;
+  } else {
+      grid += '<p class="notice">Sorry, no vehicle could be found.</p>';
+  }
+  return grid;
+};
 
 /* ****************************************
 * Middleware For Handling Errors
@@ -136,6 +154,7 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
 * Middleware to check token validity
 **************************************** */
 Util.checkJWTToken = (req, res, next) => {
+  // console.log("checkJWTToken was started")
   if (req.cookies.jwt) {
    jwt.verify(
     req.cookies.jwt,
@@ -158,7 +177,7 @@ Util.checkJWTToken = (req, res, next) => {
 /* ****************************************
  *  Check Login
  * ************************************ */
-Util.checkLogin = (req, res, next) => {
+Util.checkLoginned = (req, res, next) => {
   if (res.locals.loggedin) {
     next()
   } else {
@@ -167,5 +186,38 @@ Util.checkLogin = (req, res, next) => {
   }
  }
 
+/* ************************
+ * Constructs the login and logout
+ ************************** */
+Util.getLoginLogout = async function (req, res, next) {
+
+  try {
+    return 'loggedOut'
+    // if (res.locals.loggedin) {
+    //   console.log('this is logged in')
+    //   return "loggedIn"
+    // } else {
+    //   return "loggedOut"
+    // }
+  } catch (error) {
+    // Handle error appropriately
+    console.error("Error in getLoginLogout:", error);
+    return "loggedOut"
+  }
+
+};
+
+
+//  getting account by email
+Util.getAccountType = async function(account_email) {
+  let account_info = await invModel.getAccountType(account_email)
+  return account_info
+}
+
+// getting account by Id
+Util.getAccountById = async function(account_id) {
+  let account_info = await invModel.getAccountByIdSQL(account_id)
+  return account_info
+}
 
 module.exports = Util

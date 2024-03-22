@@ -6,15 +6,8 @@
 
         <form action="" method="post" id="dynamicForm">
             <div>
-            <label for="classification_id">Choose Classification Name
-            <select id="classification_id" name="classification_id">
-                <option value="1">Custom</option>
-                <option value="2">Sport</option>
-                <option value="3">SUV</option>
-                <option value="4">Truck</option>
-                <option value="5">Sedan</option>
-                <option value="6">New Car</option>
-            </select></label></div>
+                <%- classificationSelect %>
+            </div>
             <br>
             <div>
             <label for="inv_make">Make: <input type="text" id="inv_make" name="inv_make" required></label>
