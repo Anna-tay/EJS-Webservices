@@ -230,7 +230,6 @@ invCont.deleteInventory = async function (req, res, next) {
     title: "Delete " + itemName,
     nav,
     loginLogout,
-    
     classificationSelect: classificationSelect,
     errors: null,
     inv_id,

@@ -108,6 +108,20 @@ async function buildLogin(req, res, next) {
   }
 
 /* ****************************************
+*  Deliver logout view
+* *************************************** */
+async function buildLogout(req, res, next) {
+  let nav = await utilities.getNav()
+  let loginLogout = await utilities.getLoginLogout()
+  utilities.getLogout()
+    res.render("account/login", {
+      title: "You have logged out",
+      nav,
+     loginLogout,
+    })
+}
+
+/* ****************************************
 *  Deliver registration view
 * *************************************** */
 async function buildRegister(req, res, next) {
@@ -132,7 +146,7 @@ async function buildShowSorry(req, res, next) {
     errors: null,
   })
 }
-
+    
 
 /* ****************************************
 *  Deliver buildShowLogin view
@@ -145,6 +159,8 @@ async function buildShowLogin(req, res, next) {
   let accountType = account_info.account_type
   let account_name = account_info.account_firstname + ' ' + account_info.account_lastname
   let account_id = account_info.account_id;
+  let contactTable = await utilities.buildContactTable()
+  let addContact = "/referral/addContact/"+ account_id
   let updateAccountLink = "/account/update-info/" + account_id
   res.render("account/showLogin", {
     title: "Congrats you are logged in",
@@ -154,6 +170,8 @@ async function buildShowLogin(req, res, next) {
     accountType,
     account_name,
     account_id,
+    contactTable,
+    addContact,
     updateAccountLink
   })
 }
@@ -301,5 +319,4 @@ async function updatePassword(req, res) {
 }
 
 
-
-module.exports = { updatePassword, updateAccount, buildUpdateAccount, buildLogin, buildRegister, registerAccount, accountLogin, buildShowLogin, buildShowSorry }
+module.exports = { updatePassword, buildLogout, updateAccount, buildUpdateAccount, buildLogin, buildRegister, registerAccount, accountLogin, buildShowLogin, buildShowSorry }

@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const referralModel = require("../models/referral-model")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
@@ -143,6 +144,45 @@ Util.buildClassificationList = async function() {
   return grid;
 };
 
+// buildContactTable
+Util.buildContactTable = async function() {
+    let data = await referralModel.getAllContacts()
+    let grid = '<h3>Referrals</h3> <div class="contactTable">'
+    if (data.rows){
+      grid += `<table id="contactsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Relationship</th>
+          <th>Info</th>
+          <th>Referred By</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>`
+      data.rows.forEach(row => {
+        if (row.contacted == 1){
+          grid += `<tr><td> ${row.contact_firstname} ${row.contact_lastname} </td>
+          <td> ${row.contact_email}</td>
+          <td> ${row.contact_phone}</td>
+          <td> ${row.contact_relationship}</td>
+          <td> ${row.contact_info}</td>
+          <td> ${row.account_firstname} ${row.account_lastname}</td>
+          <td><form action="" method="post">
+          <input value="${row.contact_id}" type="hidden" name="contact_id">
+          <button type="submit">Contacted</button></form></td></tr>`
+        }
+      });
+      grid += `</tbody> </table> </div>`
+    } else {
+      grid += '<p class="notice">No one to contact yet. Please look again later!</p>';
+    }
+    return grid;
+};
+
+
 /* ****************************************
 * Middleware For Handling Errors
 * Wrap other function in this for
@@ -184,7 +224,21 @@ Util.checkLoginned = (req, res, next) => {
     req.flash("notice", "Please log in.")
     return res.redirect("/account/login")
   }
+}
+
+Util.getLogout = (req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(
+     req.cookies.jwt,
+     process.env.ACCESS_TOKEN_SECRET,
+     function (err, accountData) {
+      res.clearCookie("jwt")
+      next()
+     })
+   }
+
  }
+
 
 /* ************************
  * Constructs the login and logout
@@ -219,5 +273,6 @@ Util.getAccountById = async function(account_id) {
   let account_info = await invModel.getAccountByIdSQL(account_id)
   return account_info
 }
+
 
 module.exports = Util

@@ -6,12 +6,19 @@
     <% if (accountType == 'client') { %>
       <h2> Welcome <%- account_name %></h2>
       <a  href=<%- updateAccountLink %>>Update account information</a>
+      <br>
+      <br>
+      <a  href=<%- addContact %>>Add a reference and get up to $2,000 in points</a>
+
+
     <% } else if(accountType == 'Employee' || accountType == 'admin')  { %>
       <h2> Welcome <%- account_name %></h2>
       <p><a href=<%- updateAccountLink %>>Update Account</a></p>
       <p> <a href="/inv/" >Management Inventory</a></p>
+      <%- contactTable %>
     <% } %>
     </div>
+    <script src="../../public/js/updateContact.js"></script>
     <% } else {
       res.redirect('/')
     } %>

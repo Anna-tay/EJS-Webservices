@@ -3,12 +3,15 @@ const express = require("express");
 const router = new express.Router() ;
 const utilities = require("../utilities/index")
 const accountController = require("../controllers/accountController");
+const referralController = require("../controllers/referralController");
 const regValidate = require('../utilities/account-validation')
 
 
 
 // Route to build inventory by classification view
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
+
+router.get("/logout", utilities.handleErrors(accountController.buildLogout));
 
 router.get("/registration", accountController.buildRegister)
 
@@ -29,10 +32,9 @@ router.post("/update-account/:account_id",
   regValidate.updateRules(),
   regValidate.checkUpdateData,
   utilities.handleErrors(accountController.updateAccount)
-  )
+)
 
 router.get("/sorry", utilities.handleErrors(accountController.buildShowSorry))
-
 
 // Process the registration data
 router.post(
@@ -49,5 +51,10 @@ router.post(
     regValidate.checkLoginData,
   utilities.handleErrors(accountController.accountLogin)
 )
+
+
+// show login post to update the contact table
+// show they logged in
+router.post("/:account_email", utilities.checkLoginned, utilities.handleErrors(referralController.contactUpdate))
 
 module.exports = router;

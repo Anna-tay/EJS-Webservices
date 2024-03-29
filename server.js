@@ -9,6 +9,7 @@ const bodyParser = require("body-parser")
 const session = require("express-session")
 const pool = require('./database/')
 const accountRoute = require('./routes/accountRoutes')
+const referralRoute = require("./routes/referral")
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
@@ -62,6 +63,8 @@ app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
 // for management routes
 app.use("/inv", managerRoute)
+
+app.use("/referral", referralRoute)
 
 app.use('/public/js', express.static('public/js', { 'Content-Type': 'application/javascript' }));
 

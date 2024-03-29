@@ -376,11 +376,12 @@ footer{
   padding: .3rem;
   margin:.3rem;
   border: 1px solid rgb(46, 46, 75);
+  color: var(--purpleP);
   text-decoration: none;
 }
 
 .links a:hover{
-  background-color: rgba(194, 191, 191, 0.267);
+  background-color: rgba(194, 191, 191, 0.664);
 }
 
 .update-account, .update-password {
@@ -404,4 +405,57 @@ footer{
 
 .update-account button:hover, .update-password button:hover{
   background-color: rgba(240, 239, 239, 0.884);
+}
+
+/* showlogin view  */
+.contactTable {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.contactTable table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.contactTable th, .contactTable td {
+  text-align: left;
+  padding: 8px;
+}
+
+.contactTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+h1 {
+  color: var(--purpleP);
+  padding-left: .3rem;
+}
+
+.add-contact{
+  border: 2px gray;
+  background-color: rgb(46, 46, 75);
+  padding: 1rem;
+  margin: .5rem;
+}
+
+.add-contact label{
+  color: white;
+}
+
+.add-contact button{
+  padding: .3rem;
+  margin:.3rem;
+  border: 1px solid rgb(46, 46, 75);
+  background-color: white;
+  text-decoration: none;
+}
+
+.add-contact button:hover{
+  background-color: rgba(240, 239, 239, 0.884);
+}
+.add-contact p {
+  color: white;
+  padding-left: 1rem;
 }
